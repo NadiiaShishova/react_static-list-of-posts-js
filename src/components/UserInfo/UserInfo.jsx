@@ -1,10 +1,17 @@
 import React from 'react';
 import './UserInfo.scss';
 
-export const UserInfo = ({ user }) => (
-  <div className="UserInfo">
-    <a href={`mailto:${user.email}`} className="UserInfo__email">
+export const UserInfo = ({ user }) => {
+  if (!user) {
+    return null;
+  }
+
+  return (
+    <a
+      className="UserInfo"
+      href={`mailto:${user.email}`}
+    >
       {user.name}
     </a>
-  </div>
-);
+  );
+};
